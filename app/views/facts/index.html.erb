@@ -1,0 +1,22 @@
+<h1>Listing Facts</h1>
+<%= link_to 'New Fact', new_fact_path %>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+    <th colspan="2"></th>
+  </tr>
+
+  <% @facts.each do |fact| %>
+    <tr>
+      <td><%= fact.title %></td>
+      <td><%= fact.text %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= form_with scope: :fact, url: facts_path, local: true do |form| %>
+  ...
+<% end %>
+
+<%= link_to 'Home', '/welcome/index' %>
