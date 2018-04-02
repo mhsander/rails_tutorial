@@ -28,10 +28,4 @@ ActiveRecord::Schema.define(version: 20180401160743) do
     t.index ["article_id"], name: "index_comments_on_article_id"
   end
 
-  create_table "facts", force: :cascade do |t|
-    t.text "fact"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
 end
