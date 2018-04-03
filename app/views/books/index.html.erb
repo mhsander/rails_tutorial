@@ -1,15 +1,23 @@
 <h1>Books</h1>
 
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Author</th>
+    <th>Rating</th>
+    <th>Summary</th>
+    <th colspan="3"></th>
+  </tr>
+
 <% @books.each do |book| %>
   <tr>
     <td><%= book.title %></td>
     <td><%= book.author %></td>
     <td><%= book.rating %></td>
-    <td><%= book.text %></td>
+    <td><%= book.summary %></td>
   </tr>
 
 <% end %>
-<p>Add books and ratings via form</p>
 
 <%= link_to 'New Book', 'books/new' %><br><br>
 
