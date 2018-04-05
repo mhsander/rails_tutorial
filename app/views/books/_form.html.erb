@@ -1,0 +1,39 @@
+<%= form_with scope: :books, url: '/books', local: true do |form| %>
+
+  <% if @book.errors.any? %>
+    <div> id="error_explanation"
+      <h2>
+        <%= pluralize(@book.errors.count, "error") %> prohibited this book from being saved:
+      </h2>
+      <ul>
+        <%= @book.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= form.label :Book_title %><br>
+    <%= form.text_field :title %>
+  </p>
+
+  <p>
+    <%= form.label :Author %><br>
+    <%= form.text_field :author %>
+  </p>
+
+  <p>
+    <%= form.label :Rating %><br>
+    <%= form.number_field :rating %>
+  </p>
+
+  <p>
+    <%= form.label :Summary %><br>
+    <%= form.text_area :summary %>
+  </p>
+
+  <p>
+    <%= form.submit value="Save Book to Library" %>
+  </p>
+<% end %>

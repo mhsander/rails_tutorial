@@ -1,4 +1,7 @@
 class BooksController < ApplicationController
+
+  http_basic_authenticate_with name: "martha", password: "secret", except: [:index, :show]
+
   def index
     @books = Book.all
     puts @books.inspect
@@ -12,15 +15,15 @@ class BooksController < ApplicationController
     @book = Book.new
   end
 
+  def edit
+    @book = Book.find(params[:id])
+  end
+
   def create
     @book = Book.new(book_params)
 
     @book.save
     redirect_to @book
-  end
-
-  def edit
-    @book = Book.find(params[:id])
   end
 
   def update
@@ -32,7 +35,6 @@ class BooksController < ApplicationController
       render 'edit'
     end
   end
-
 
   def destroy
     @book = Book.find(params[:id])

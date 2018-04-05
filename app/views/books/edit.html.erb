@@ -1,29 +1,5 @@
 <h1>Edit Book</h1>
 
-<%= form_with scope: :books, url: '/books', local: true do |form| %>
-  <p>
-    <%= form.label :Book_title %><br>
-    <%= form.text_field :title %>
-  </p>
-
-  <p>
-    <%= form.label :Author %><br>
-    <%= form.text_field :author %>
-  </p>
-
-  <p>
-    <%= form.label :Rating %><br>
-    <%= form.number_field :rating %>
-  </p>
-
-  <p>
-    <%= form.label :Summary %><br>
-    <%= form.text_area :summary %>
-  </p>
-
-  <p>
-    <%= form.submit value="Save Book to Library" %>
-  </p>
-<% end %>
+<%= render 'books/form' %>
 
 <%= link_to 'Back', books_path %>
