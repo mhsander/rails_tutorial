@@ -4,7 +4,6 @@ class BooksController < ApplicationController
 
   def index
     @books = Book.all
-    puts @books.inspect
   end
 
   def show
@@ -22,8 +21,11 @@ class BooksController < ApplicationController
   def create
     @book = Book.new(book_params)
 
-    @book.save
+    if @book.save
     redirect_to @book
+    else
+      render 'new'
+    end
   end
 
   def update
